@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="el">
+    <head>
+
+        <title>Comparison</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+        <link rel="stylesheet" href="css/comparisonStyle.css">
+        <script src="js/comparison.js"></script>
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+            <div class="container-fluid">
+                <img src="images/logo.png" alt="Λογότυπο της εφαρμογής" style="width: 8%;margin-right: 15px">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Αρχική</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Κατηγορίες
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="electricityConsumption.html">Κατανάλωση ρεύματος στην Ελλάδα</a></li>
+                                <li><a class="dropdown-item" href="energyBalance.html">Ενεργειακό Ισοζύγιο</a></li>            
+                                <li><a class="dropdown-item" href="energySystemLoad.html">Φορτίο συστήματος ενέργειας</a></li>            
+                                <li><a class="dropdown-item" href="hydrologicalData.html">Υδρολογικά Δεδομένα Υδρολογικών Σταθμών Κρήτης</a></li>            
+                                <li><a class="dropdown-item" href="parcelsofLand.html">Πλήθος γεωτεμαχίων ανά ΟΤΑ</a> </li>           
+                                <li><a class="dropdown-item" href="protectedAreaPlots.html">Αγροτεμάχια προστατευόμενων περιοχών ανά Ο.Τ.Α.</a> </li>           
+                                <li><a class="dropdown-item" href="qualityofSwimmingWaters.html">Ποιότητας των Υδάτων Κολύμβησης Κρήτης</a></li>            
+                                <li><a class="dropdown-item" href="renewableEnergySources.html">Ανανεώσιμες πηγές ενέργειας</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="comparison.html">Σύγκριση</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="maps.html">Χάρτες και Οπτικοποιήσεις</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                    </ul>
+                    <ul class="d-flex">
+                        <li class=""><a>
+
+                            </a>   
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Σύνδεση
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Σύνδεση</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-2">
+                                <label for="username" class="form-label">Όνομα χρήστη:</label>
+                                <input type="text" id="username" class="form-control">
+                            </div>
+                            <div class="mb-2">
+                                <label for="password" class="form-label">Κωδικός:</label>
+                                <input type="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-check text-start my-3">
+                                <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 py-2">Σύνδεση</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p>Δεν εχετε λογαριασμο?</p>
+                        <button id="login-button" type="button" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-3" style="flex: 1;">
+            <h2>Επιλέξτε κατηγορίες σύγκρισης</h2>
+            <div class="row my-5">
+                <div class="col-sm-3">
+                    <div class="card category" data-group="energy">
+                        <div class="card-body">
+                            <h5 class="card-title">Κατανάλωση ρεύματος στην Ελλάδα</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card category" data-group="energy">
+                        <div class="card-body">
+                            <h5 class="card-title">Ενεργειακό Ισοζύγιο</h5><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card category" data-group="energy">
+                        <div class="card-body">
+                            <h5 class="card-title">Ανανεώσιμες πηγές ενέργειας</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card category" data-group="land">
+                        <div class="card-body">
+                            <h5 class="card-title">Πλήθος γεωτεμαχίων ανά ΟΤΑ</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-sm-3">
+                    <div class="card category" data-group="land">
+                        <div class="card-body">
+                            <h5 class="card-title">Αγροτεμάχια προστατευόμενων περιοχών ανά Ο.Τ.Α.</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card category" data-group="energy">
+                        <div class="card-body">
+                            <h5 class="card-title">Φορτίο συστήματος ενέργειας</h5><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card category single-select" data-group="hydrology">
+                        <div class="card-body">
+                            <h5 class="card-title">Υδρολογικά Δεδομένα Υδρολογικών Σταθμών Κρήτης</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card category single-select" data-group="water_quality">
+                        <div class="card-body">
+                            <h5 class="card-title">Ποιότητα των Υδάτων Κολύμβησης Κρήτης</h5><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="single-comparison" style="display: none;">
+                <h4 class="my-5">Σύγκριση περιόδων</h4>
+                <div class="row">
+                    <div class="col">
+                        <h4>Πρώτη περίοδος</h4>
+                    </div> 
+                    <div class="col">
+                        <h4>Δεύτερη περίοδος</h4>
+                    </div>
+                </div>
+                <div class="row my-3">
+
+                    <div class="col-sm-3">
+
+                        <label for="start-date1">Αρχική Ημ/νία</label>
+                        <div class="date-wrapper">
+                            <svg class="date-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#777">
+                            <path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/>
+                            </svg>
+
+                            <input type="text" id="start-date1" class="form-control date-input" placeholder="dd/mm/YYYY">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="end-date1">Τελική Ημ/νία</label>
+                        <div class="date-wrapper">
+                            <svg class="date-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#777">
+                            <path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/>
+                            </svg>
+                            <input type="text" id="end-date1" class="form-control date-input" placeholder="dd/mm/YYYY">
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-3">
+
+                        <label for="start-date2">Αρχική Ημ/νία</label>
+                        <div class="date-wrapper">
+                            <svg class="date-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#777">
+                            <path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/>
+                            </svg>
+
+                            <input type="text" id="start-date2" class="form-control date-input" placeholder="dd/mm/YYYY">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="end-date2">Τελική Ημ/νία</label>
+                        <div class="date-wrapper">
+                            <svg class="date-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#777">
+                            <path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/>
+                            </svg>
+                            <input type="text" id="end-date2" class="form-control date-input" placeholder="dd/mm/YYYY">
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
+
+                    <div class="d-grid gap-2 col-6 mx-auto my-3">
+                        <button id="search-button" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+
+                <div class="card card-flush h-md-100 no-hover" id="single1">
+                    <div class="card-header pt-5" id="category_title">
+
+                    </div>
+                    <div class="card-body pt-6" style="max-height: 400px; overflow-y: auto;">
+                        <div  id="category">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-flush h-md-100 no-hover my-5" id="single2">
+                    <div class="card-header pt-5">
+                        <h3 class="card-title align-items-start flex-column">			
+                            <span class="card-label fw-bold text-gray-800" id="chart-title"></span>
+                        </h3>
+                    </div>
+                    <div class="card-body pt-6">
+                        <canvas id="Chart1"></canvas> 
+                    </div>
+                </div>
+            </div>
+
+            <div id="comparison-section" style="display: none;">
+                <h4 class="my-5">Αποτελέσματα Σύγκρισης</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card card-flush h-md-100 no-hover">
+                            <div class="card-header pt-5" id="category1_title">
+
+                            </div>
+                            <div class="card-body pt-6" style="max-height: 400px; overflow-y: auto;">
+                                <div id="category1">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card card-flush h-md-100 no-hover">
+                            <div class="card-header pt-5" id="category2_title">
+
+                            </div>
+                            <div class="card-body pt-6" style="max-height: 400px; overflow-y: auto;">
+                                <div id="category2">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-flush h-md-100 no-hover my-5">
+                    <div class="card-header pt-5">
+                        <h3 class="card-title align-items-start flex-column">			
+                            <span class="card-label fw-bold text-gray-800" id="chart-title"></span>
+                        </h3>
+                    </div>
+                    <div class="card-body pt-6">
+                        <canvas id="Chart2"></canvas> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-muted" style="margin-top: auto;">
+            <div class="container">
+                <p class="float-right">
+                    <a href="#">Back to top</a>
+                </p>
+                <p>© Γεωργία Παπαϊωάννου. Όλα τα δικαιώματα διατηρούνται.</p>
+                <p>Email: csd4781@csd.uoc.gr</p>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

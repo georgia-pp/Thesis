@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>About</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+            <div class="container-fluid">
+                <img src="images/logo.png" alt="Λογότυπο της εφαρμογής" style="width: 8%;margin-right: 15px">
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Αρχική</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Κατηγορίες
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="electricityConsumption.html">Κατανάλωση ρεύματος στην Ελλάδα</a></li>
+                                <li><a class="dropdown-item" href="energyBalance.html">Ενεργειακό Ισοζύγιο</a></li>            
+                                <li><a class="dropdown-item" href="energySystemLoad.html">Φορτίο συστήματος ενέργειας</a></li>            
+                                <li><a class="dropdown-item" href="hydrologicalData.html">Υδρολογικά Δεδομένα Υδρολογικών Σταθμών Κρήτης</a></li>            
+                                <li><a class="dropdown-item" href="parcelsofLand.html">Πλήθος γεωτεμαχίων ανά ΟΤΑ</a> </li>           
+                                <li><a class="dropdown-item" href="protectedAreaPlots.html">Αγροτεμάχια προστατευόμενων περιοχών ανά Ο.Τ.Α.</a> </li>           
+                                <li><a class="dropdown-item" href="qualityofSwimmingWaters.html">Ποιότητας των Υδάτων Κολύμβησης Κρήτης</a></li>            
+                                <li><a class="dropdown-item" href="renewableEnergySources.html">Ανανεώσιμες πηγές ενέργειας</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="comparison.html">Σύγκριση</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="maps.html">Χάρτες και Οπτικοποιήσεις</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  active" href="about.html">About</a>
+                        </li>
+                    </ul>
+                    <ul class="d-flex">
+                        <li class=""><a>
+
+                            </a>   
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Σύνδεση
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Σύνδεση</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-2">
+                                <label for="username" class="form-label">Όνομα χρήστη:</label>
+                                <input type="text" id="username" class="form-control">
+                            </div>
+                            <div class="mb-2">
+                                <label for="password" class="form-label">Κωδικός:</label>
+                                <input type="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-check text-start my-3">
+                                <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Remember me
+                                </label>
+                            </div>
+                            <button id="login-button" type="submit" class="btn btn-primary w-100 py-2">Σύνδεση</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p>Δεν εχετε λογαριασμο?</p>
+                        <button type="button" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5" style="flex: 1;">
+
+            <h3 class="my-5">
+                Γενική περιγραφή <br>
+                <small class="text-muted">Το σύστημα θα απεικονίζεται μέσω μιας διαδικτυακής εφαρμογής που θα παρέχει δύο τύπους χρηστών:
+                    απλούς επισκέπτες και διαχειριστές. Οι χρήστες που ανοίγουν την εφαρμογή θεωρούνται απλώς
+                    επισκέπτες και μπορούν να εξερευνήσουν και να μελετήσουν τα διαθέσιμα δεδομένα. Για να αποκτήσει
+                    κάποιος πρόσβαση ως διαχειριστής, απαιτούνται στοιχεία σύνδεσης και συνθηματικό. Ο διαχειριστής έχει
+                    τη δυνατότητα να προσθέτει ή να αφαιρεί δεδομένα από το σύστημα. </small>
+            </h3>
+            <h3 class="my-5">
+                Σκοπός συστήματος <br>
+                <small class="text-muted">Ο σκοπός του συστήματος είναι να αναπτυχθεί μια διαδικτυακή εφαρμογή που θα επιτρέπει την εύκολη
+                    ανάλυση, αναζήτηση και οπτικοποίηση ανοικτών δεδομένων σχετικά με την παραγωγή και κατανάλωση
+                    ενέργειας στην Ελλάδα. Μέσω της εφαρμογής, οι χρήστες θα έχουν τη δυνατότητα να αποκτούν γρήγορη
+                    και κατανοητή εικόνα για την κατάσταση της ενέργειας στη χώρα και να εξετάζουν τα δεδομένα από
+                    διάφορες οπτικές, όπως ανά χρονική περίοδο, γεωγραφική περιοχή ή κατηγορία ενέργειας.
+                    Το σύστημα στοχεύει στην παροχή ενός εργαλείου που θα διευκολύνει την πρόσβαση και κατανόηση των
+                    ανοιχτών δεδομένων, παρέχοντας τα εξής:<br><br>
+                    • Διαδραστική Οπτικοποίηση: Δημιουργία γραφημάτων, χαρτών και άλλων οπτικών εργαλείων για
+                    την παρουσίαση των δεδομένων με τρόπο που διευκολύνει την ανάλυσή τους.<br>
+                    • Ευκολία Χρήσης: Παροχή εργαλείων για την εύκολη αναζήτηση, φιλτράρισμα και εξαγωγή των
+                    δεδομένων ανά διάφορα κριτήρια (π.χ. χρονική περίοδος, περιοχή, τύπος ενέργειας).<br>
+                    • Διαχείριση Δεδομένων: Δυνατότητα εισαγωγής νέων δεδομένων (π.χ. μέσω αρχείων CSV) και
+                    παραμετροποίησης του συστήματος για τη διατήρηση των δεδομένων ενημερωμένων.<br>
+                    • Επέκταση και Προσβασιμότητα: Ανάπτυξη ενός REST API για την εξαγωγή και διάθεση των
+                    δεδομένων σε εναλλακτικές μορφές (JSON, XML, HTML), επιτρέποντας την αλληλεπίδραση με
+                    άλλες εφαρμογές ή συστήματα.<br><br>
+
+                    Με αυτόν τον τρόπο, το σύστημα αποσκοπεί στη στήριξη της διαφάνειας στον τομέα της ενέργειας στην
+                    Ελλάδα, παρέχοντας στους χρήστες τη δυνατότητα να λαμβάνουν τεκμηριωμένες αποφάσεις βασισμένες
+                    σε ακριβή δεδομένα και ενισχύοντας τη βιωσιμότητα στον ενεργειακό τομέα.</small>
+            </h3>
+
+
+        </div>
+
+        <footer class="text-muted" style="margin-top: auto;">
+            <div class="container">
+                <p class="float-right">
+                    <a href="#">Back to top</a>
+                </p>
+                <p>© Γεωργία Παπαϊωάννου. Όλα τα δικαιώματα διατηρούνται.</p>
+                <p>Email: csd4781@csd.uoc.gr</p>
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,56 @@
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    padding-top: 100px;
+}
+
+.card {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: lightgray;
+    transform: scale(1.05);
+}
+
+.no-hover {
+    cursor: default !important;
+}
+
+.no-hover:hover {
+    background-color: inherit !important;
+    transform: none !important;
+}
+
+.selected {
+    background-color: #28a745 !important;
+    color: white;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.date-wrapper {
+    position: relative;
+    width: 70%;
+}
+
+.date-input {
+    padding-left: 40px;
+}
+
+.date-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+
