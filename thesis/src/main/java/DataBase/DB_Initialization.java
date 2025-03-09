@@ -27,7 +27,7 @@ public class DB_Initialization {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         DB_Initialization init = new DB_Initialization();
-        init.dropDatabase();
+        //init.dropDatabase();
         init.initDatabase();
         init.initTables();
     }
