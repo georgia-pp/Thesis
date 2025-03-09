@@ -222,6 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 results.data.forEach(function (row) {
                     addData(dataTypeE, row);
                 });
+                alert("Τα στοιχεία προσθεθηκαν με επιτυχία!");
             }
         });
     }
@@ -230,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                alert("Το στοιχείο προστεθηκε με επιτυχία!");
+                
                 getData(dataType);
             } else {
                 console.error('Error deleting data:', xhr.responseText);
