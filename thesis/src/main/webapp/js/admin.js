@@ -144,8 +144,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 Object.assign(params, {
                     date: String(item.date),
                     otaId: String(item.otaId),
-                    otaName: String(item.Name),
-                    otaNameEn: String(item.NameEn),
+                    otaName: String(item.otaName),
+                    otaNameEn: String(item.otaNameEn),
                     plots: String(item.plots)
                 });
                 break;
@@ -193,7 +193,6 @@ document.addEventListener("DOMContentLoaded", function () {
     fileInput.addEventListener("change", function () {
         const file = fileInput.files[0];
         if (file && file.type === "text/csv") {
-            alert("CSV file has been selected: " + file.name);
             handleCsvFile(file);
         } else {
             alert("Please select a CSV file.");

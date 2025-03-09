@@ -74,7 +74,7 @@ public class DeleteDataServlet extends HttpServlet {
                 temperature = json.getString("temperature");
                 waterDepth = json.getString("waterDepth");
                 waterLevel = json.getString("waterLevel");
-                date = json.getString("date");
+                date = json.getString("timestamp");
                 break;
             case "ParcelsofLand":
                 date = json.getString("date");
@@ -110,7 +110,7 @@ public class DeleteDataServlet extends HttpServlet {
                 break;
             case "RenewableEnergySources":
                 date = json.getString("date");
-                area = json.getString("area");
+                energy = json.getString("energy");
                 break;
         }
 
@@ -167,7 +167,7 @@ public class DeleteDataServlet extends HttpServlet {
                         }
                         if (percentage != null && !percentage.isEmpty()) {
                             double max = Double.parseDouble(percentage);
-                            queryBuilder.append(hasCondition ? " AND" : " WHERE").append(" energy_mwh = ?");
+                            queryBuilder.append(hasCondition ? " AND" : " WHERE").append(" percentage = ?");
                             params.add(max);
                         }
 
@@ -247,7 +247,6 @@ public class DeleteDataServlet extends HttpServlet {
                         queryBuilder.append("DELETE FROM ParcelsofLand");
 
                         if (date != null && !date.isEmpty()) {
-
                             queryBuilder.append(hasCondition ? " AND" : " WHERE").append(" date = ?");
                             params.add(date);
                             hasCondition = true;

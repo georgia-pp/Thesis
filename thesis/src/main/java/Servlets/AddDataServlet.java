@@ -190,10 +190,10 @@ public class AddDataServlet extends HttpServlet {
                     case "QualityofSwimmingWaters":
                         queryBuilder.append("INSERT INTO QualityofSwimmingWaters(airdirection, analysisDate, caoutchouc, coast, deliveryDate, description, ecoli, garbage, glass, intenterococci, municipal, perunit, plastic, rainfall, sampleTimestamp, stationcode, tar, wave, yestrainfall) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                         params.add(airdirection);
-                        params.add(null);
+                        params.add("");
                         params.add(caoutchouc);
                         params.add(coast);
-                        params.add(null);
+                        params.add("");
                         params.add(description);
                         params.add(ecoli);
                         params.add(garbage);
